@@ -11,11 +11,12 @@ export const useUsers = (url) => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchUsers = async () => {
+    const fetchData = async () => {
       try {
         setLoading(true);
         setError(null);
         const response = await axios.get(url);
+           setData(response.data);
       } catch (err) {
         if (err.response) {
           setError(err.message);
