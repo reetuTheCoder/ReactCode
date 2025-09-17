@@ -2,6 +2,7 @@ import React from "react";
 import { ApiCallUsingFetch } from "./ApiCallUsingFetch";
 import { ApiCallUsingAxios } from "./ApiCallUsingAxios";
 import { ApiCallUsingAxiosAsync1 } from "./ApiCallUsingAxiosAsync1";
+import { ApiCallUsingAxiosAsync2 } from "./ApiCallUsingAxiosAsync2";
 
 export const Main = () => {
   return (
@@ -16,6 +17,11 @@ export const Main = () => {
       <br />
       <h2>Api Call Using  with Async Await</h2>
       <ApiCallUsingAxiosAsync1 />
+        <br />
+      <br />
+      <h2>IIFE (Immediately Invoked Function Expression)</h2>
+      <ApiCallUsingAxiosAsync2 />
+      
     </div>
   );
 };
