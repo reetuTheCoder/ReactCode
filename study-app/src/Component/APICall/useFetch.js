@@ -1,11 +1,7 @@
-// Approach 3: Custom hook (Recommended for reusability)
-
-// Approach 2: IIFE (Immediately Invoked Function Expression)
-
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 
-export const useUsers = (url) => {
+export const useFetch = (url) => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -16,11 +12,9 @@ export const useUsers = (url) => {
         setLoading(true);
         setError(null);
         const response = await axios.get(url);
-           setData(response.data);
+        setData(response.data);
       } catch (err) {
-        if (err.response) {
-          setError(err.message);
-        }
+        setError(err.message);
       } finally {
         setLoading(false);
       }
@@ -31,5 +25,5 @@ export const useUsers = (url) => {
     }
   }, [url]);
 
-  return { users, loading, error };
+  return { data, loading, error };
 };

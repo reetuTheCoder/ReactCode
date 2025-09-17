@@ -1,8 +1,8 @@
 import React from "react";
-import { ApiCallUsingFetch } from "./ApiCallUsingFetch";
-import { ApiCallUsingAxios } from "./ApiCallUsingAxios";
-import { ApiCallUsingAxiosAsync1 } from "./ApiCallUsingAxiosAsync1";
-import { ApiCallUsingAxiosAsync2 } from "./ApiCallUsingAxiosAsync2";
+import { ApiCallUsingFetch } from "./APICall/ApiCallUsingFetch";
+import { ApiCallUsingAxios } from "./APICall/ApiCallUsingAxios";
+import { ApiCallUsingAxiosAsync1 } from "./APICall/ApiCallUsingAxiosAsync1";
+import { ApiCallUsingAxiosAsync2 } from "./APICall/ApiCallUsingAxiosAsync2";
 
 export const Main = () => {
   return (

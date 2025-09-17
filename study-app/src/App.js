@@ -1,11 +1,13 @@
-import './App.css';
-import { Main } from './Component/APICall/Main';
+import "./App.css";
+import { Main } from "./Component/Main";
 
+import UsersList from "./Component/UsersList";
 
 function App() {
   return (
     <div className="App">
-    <Main/>
+      <Main/>
+      <UsersList />
     </div>
   );
 }
