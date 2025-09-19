@@ -1,4 +1,5 @@
 import "./App.css";
+import TimerBtn from "./Components/TimerBtn";
 import UserCard from "./Components/UserCard";
 
 let data = {
@@ -9,7 +10,9 @@ let data = {
 function App() {
   return (
     <div className="App">
-      <UserCard data={data} />
+      {/* <UserCard data={data} /> */}
+
+      <TimerBtn/>
     </div>
   );
 }
