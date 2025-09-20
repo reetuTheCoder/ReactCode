@@ -1,4 +1,5 @@
 import "./App.css";
+import Main from "./Components/HakerrankQst/Main";
 import TimerBtn from "./Components/TimerBtn";
 import UserCard from "./Components/UserCard";
 
@@ -12,7 +13,11 @@ function App() {
     <div className="App">
       {/* <UserCard data={data} /> */}
 
-      <TimerBtn/>
+      {/* <TimerBtn/> */}
+
+
+      {/* <h1>hakerRank</h1> */}
+      <Main/>
     </div>
   );
 }
