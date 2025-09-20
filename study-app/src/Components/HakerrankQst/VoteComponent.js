@@ -1,52 +1,52 @@
-import React, { use, useState } from "react";
+import React, { useState } from "react";
 
-const usersData = [
-  { id: 1, name: "Alice", upVotes: 0, downVotes: 0 },
-  { id: 2, name: "Bob", upVotes: 0, downVotes: 0 },
-  { id: 3, name: "Charlie", upVotes: 0, downVotes: 0 },
-  { id: 4, name: "David", upVotes: 0, downVotes: 0 },
-  { id: 5, name: "Emma", upVotes: 0, downVotes: 0 },
-];
+const usersNames = ["Alice", "Bob", "Charlie"];
+
+
+// we use create initialUsers for  the id
+const initialUsers = usersNames.map((name, index) => ({
+  id: index + 1,
+  name,
+  upVotes: 0,
+  downVotes: 0,
+}));
+
+console.log("now it will be in the obj form with id",initialUsers);
+
 
 const VoteComponent = () => {
-  const [users, setUsers] = useState(usersData);
+  const [users, setUsers] = useState(initialUsers);
 
-  const handleVote = (id, voteType) => {
-    setUsers((prev) =>      
-      prev.map((user) => {
-        if (user.id === id) {
-          if (voteType === "up") {
-            return {
+  const handleVote = (id, type) => {
+    setUsers((prev) =>
+      prev.map((user) =>
+        user.id === id
+          ? {
               ...user,
-              upVotes: user.upVotes === 1 ? 0 : 1,
-              // downVotes: 0
-            };
-          } else if (voteType === "down") {
-            return {
-              ...user,
-              downVotes: user.downVotes === 1 ? 0 : 1,
-            //   upVotes: 0,
-            };
-          }
-        }
-        return user;
-      })
+              upVotes:
+                type === "up" ? (user.upVotes === 1 ? 0 : 1) : user.upVotes,
+              downVotes:
+                type === "down"
+                  ? user.downVotes === 1
+                    ? 0
+                    : 1
+                  : user.downVotes,
+            }
+          : user
+      )
     );
   };
 
   return (
     <div>
       {users.map((user) => (
-        <div key={user.id}>
+        <div key={user.id} style={{ marginBottom: "1rem" }}>
           <h3>{user.name}</h3>
           <div>
-            <div>
-              <strong>👍</strong> {user.upVotes}
-              <strong>👎</strong> {user.downVotes}
-            </div>
-            <button onClick={() => handleVote(user.id, "up")}>Dislike</button>
-            <button onClick={() => handleVote(user.id, "down")}>Like</button>
+            <span>👍 {user.upVotes}</span> <span>👎 {user.downVotes}</span>
           </div>
+          <button onClick={() => handleVote(user.id, "up")}>Like</button>
+          <button onClick={() => handleVote(user.id, "down")}>Dislike</button>
         </div>
       ))}
     </div>
