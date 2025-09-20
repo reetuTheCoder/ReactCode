@@ -1,4 +1,5 @@
 import "./App.css";
+import ChatG_Main from "./Components/ChatGptQst/ChatG_Main";
 import Main from "./Components/HakerrankQst/Main";
 import TimerBtn from "./Components/TimerBtn";
 import UserCard from "./Components/UserCard";
@@ -17,7 +18,11 @@ function App() {
 
 
       {/* <h1>hakerRank</h1> */}
-      <Main/>
+      {/* <Main/> */}
+
+
+      {/* <h1>Chat GPT Qst</h1> */}
+      <ChatG_Main/>
     </div>
   );
 }
