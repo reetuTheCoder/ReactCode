@@ -18,11 +18,11 @@ function App() {
 
 
       {/* <h1>hakerRank</h1> */}
-      {/* <Main/> */}
+      <Main/>
 
 
       {/* <h1>Chat GPT Qst</h1> */}
-      <ChatG_Main/>
+      {/* <ChatG_Main/> */}
     </div>
   );
 }
