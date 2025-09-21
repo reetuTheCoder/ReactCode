@@ -1,54 +1,66 @@
 import React, { useState } from "react";
 
 const usersNames = ["Alice", "Bob", "Charlie"];
+// task - i can vote all users like dislike as per click btn vote will increase
 
+// need - 1. should be id in the each user
 
-// we use create initialUsers for  the id
-const initialUsers = usersNames.map((name, index) => ({
-  id: index + 1,
+let initial = usersNames.map((name, index) => ({
+  id: index,
   name,
-  upVotes: 0,
-  downVotes: 0,
+  likes: 0,
+  dislikes: 0,
 }));
 
-console.log("now it will be in the obj form with id",initialUsers);
-
-
 const VoteComponent = () => {
-  const [users, setUsers] = useState(initialUsers);
+  const [votes, setVotes] = useState(initial);
 
-  const handleVote = (id, type) => {
-    setUsers((prev) =>
-      prev.map((user) =>
-        user.id === id
-          ? {
-              ...user,
-              upVotes:
-                type === "up" ? (user.upVotes === 1 ? 0 : 1) : user.upVotes,
-              downVotes:
-                type === "down"
-                  ? user.downVotes === 1
-                    ? 0
-                    : 1
-                  : user.downVotes,
-            }
-          : user
-      )
-    );
+  const handleVote = (id, voteType) => {
+    //  console.log("hello");
+
+    setVotes((prev) => {
+      console.log(prev);
+      return prev.map((item) => {
+        // console.log(item);
+
+        if (item.id === id) {
+          if (voteType === "like") {
+            return {
+              ...item,
+              likes: item.likes + 1,
+            };
+          } else {
+            return {
+              ...item,
+              dislikes: item.dislikes + 1,
+            };
+          }
+        }
+        return item;
+      });
+    });
   };
-
   return (
     <div>
-      {users.map((user) => (
-        <div key={user.id} style={{ marginBottom: "1rem" }}>
-          <h3>{user.name}</h3>
-          <div>
-            <span>👍 {user.upVotes}</span> <span>👎 {user.downVotes}</span>
+      <div>
+        {votes.map((item) => (
+          <div
+            style={{ border: "2px solid red", marginBottom: "30px" }}
+            key={item.id}
+          >
+            <div>{item.name}</div>
+            <div>
+              <button onClick={() => handleVote(item.id, "like")}>Like</button>
+              <button onClick={() => handleVote(item.id, "dislike")}>
+                Dislike
+              </button>
+            </div>
+
+            <p>Likes: {item.likes}</p>
+            <p>Dislike:{item.dislikes}</p>
           </div>
-          <button onClick={() => handleVote(user.id, "up")}>Like</button>
-          <button onClick={() => handleVote(user.id, "down")}>Dislike</button>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 };

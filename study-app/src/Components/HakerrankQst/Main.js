@@ -9,8 +9,8 @@ const Main = () => {
     <div>
         {/* <Slides slides={Slide_data}/> */}
 
-        {/* <VoteComponent/> */}
-        <FeedbackSystem/>
+        <VoteComponent/>
+        {/* <FeedbackSystem/> */}
     </div>
   )
 }
